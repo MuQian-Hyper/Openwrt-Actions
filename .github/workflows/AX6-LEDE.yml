@@ -80,8 +80,8 @@ jobs:
     - name: Assemble Artifact
       id: assemble_artifact
       run: |
-        rm -rf ./MuQian-Hyper
-        mkdir -p ./MuQian-Hyper/
+        rm -rf ./Hyper
+        mkdir -p ./Hyper/
         
         getmd5()
         {
@@ -92,17 +92,17 @@ jobs:
         
         rom=openwrt/bin/targets/qualcommax/ipq807x/openwrt-qualcommax-ipq807x-redmi_ax6-squashfs-sysupgrade.bin
         getmd5 $rom        
-        cp -a $rom ./MuQian-Hyper/Redmi-AX6-LEDE-sysupgrade.bin
+        cp -a $rom ./Hyper/Redmi-AX6-LEDE-sysupgrade.bin
         
         rom=openwrt/bin/targets/qualcommax/ipq807x/openwrt-qualcommax-ipq807x-redmi_ax6-squashfs-factory.ubi
         getmd5 $rom           
-        cp -a $rom ./MuQian-Hyper/Redmi-AX6-LEDE-factory.ubi
+        cp -a $rom ./Hyper/Redmi-AX6-LEDE-factory.ubi
                
     - name: Upload Firmwares
       uses: actions/upload-artifact@main
       with:
         name: AX6-LEDE
-        path: MuQian-Hyper/Red*
+        path: Hyper/Red*
 
     - name: Upload config
       uses: actions/upload-artifact@main
@@ -128,7 +128,7 @@ jobs:
     - name: Create Release & Upload
       uses: ncipollo/release-action@main
       with:
-        artifacts: MuQian-Hyper/Red*
+        artifacts: Hyper/Red*
         name: ${{ steps.generate_name.outputs.release_name }}
         tag: ${{ steps.generate_name.outputs.release_tag }}
         token: ${{ secrets.GITHUB_TOKEN }}
