@@ -8,8 +8,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-#  schedule:
-#    - cron: 0 20 * * *
+  schedule:
+    - cron: 0 20 * * *
     
 jobs:
   AX6-LEDE:
