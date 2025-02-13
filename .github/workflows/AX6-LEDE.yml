@@ -82,6 +82,7 @@ jobs:
       run: |
         rm -rf ./Hyper
         mkdir -p ./Hyper/
+        cp -a ./openwrt/.config ./Hyper/Redmi-AX6-LEDE.config
         
         getmd5()
         {
