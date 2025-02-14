@@ -109,7 +109,7 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: AX6-LEDE-config
-        path: openwrt/.config
+        path: Hyper/.config
 
     - name: Upload Packages
       uses: actions/upload-artifact@main
